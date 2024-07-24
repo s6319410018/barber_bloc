@@ -9,6 +9,15 @@ class AppTheme {
       selectionColor: Colors.black,
       selectionHandleColor: Colors.black,
     ),
+    hoverColor: Colors.black,
+    // textButtonTheme: const TextButtonThemeData(
+    //   style: ButtonStyle(
+    //     surfaceTintColor: WidgetStatePropertyAll(Colors.white),
+    //     backgroundColor: WidgetStatePropertyAll(Colors.white),
+    //     foregroundColor: WidgetStatePropertyAll(Colors.white),
+    //     overlayColor: WidgetStatePropertyAll(Colors.white),
+    //   ),
+    // ),
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.lightBackground,
     brightness: Brightness.light,
@@ -62,9 +71,19 @@ class AppTheme {
 
   static final darkTheme = ThemeData(
     textSelectionTheme: const TextSelectionThemeData(
-        cursorColor: Colors.black,
-        selectionColor: Colors.black,
-        selectionHandleColor: Colors.black),
+      cursorColor: Colors.white,
+      selectionColor: Colors.white,
+      selectionHandleColor: Colors.white,
+    ),
+    hoverColor: Colors.white,
+    // textButtonTheme: const TextButtonThemeData(
+    //   style: ButtonStyle(
+    //     surfaceTintColor: WidgetStatePropertyAll(Colors.black),
+    //     backgroundColor: WidgetStatePropertyAll(Colors.black),
+    //     foregroundColor: WidgetStatePropertyAll(Colors.black),
+    //     overlayColor: WidgetStatePropertyAll(Colors.black),
+    //   ),
+    // ),
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.darkBackground,
     brightness: Brightness.dark,

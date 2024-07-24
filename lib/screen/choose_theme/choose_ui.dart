@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:barber_bloc/Theme/app_colors.dart';
 import 'package:barber_bloc/Theme/bloc/Them_cubit.dart';
+import 'package:barber_bloc/screen/Auth/signup_or_siginin.dart';
 import 'package:barber_bloc/screen/start/start.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -133,11 +134,13 @@ class _ChooseModePageState extends State<ChooseModePage> {
                     ),
                     const SizedBox(height: 50),
                     BasicAppButton(
+                      loading: false,
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (BuildContext context) => const StartUI(),
+                            builder: (BuildContext context) =>
+                                const SignupOrSigninPage(),
                           ),
                         );
                       },

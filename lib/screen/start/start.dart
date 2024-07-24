@@ -1,3 +1,4 @@
+import 'package:barber_bloc/screen/Auth/signup_or_siginin.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -79,6 +80,7 @@ class StartUI extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       BasicAppButton(
+                        loading: false,
                         onPressed: () {
                           Navigator.push(
                             context,
