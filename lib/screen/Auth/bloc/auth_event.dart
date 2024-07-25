@@ -17,3 +17,17 @@ class RegisterRequested extends AuthEvent {
   @override
   List<Object> get props => [user];
 }
+
+class LoginRequested extends AuthEvent {
+  final User user;
+
+  const LoginRequested(this.user);
+
+  @override
+  List<Object> get props => [user];
+}
+
+class getRequested extends AuthEvent {
+  @override
+  List<Object> get props => [];
+}

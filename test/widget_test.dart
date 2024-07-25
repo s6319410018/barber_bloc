@@ -1,30 +1,69 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 
-import 'package:barber_bloc/main.dart';
+class AweseomSnackBarExample extends StatelessWidget {
+  const AweseomSnackBarExample({Key? key}) : super(key: key);
 
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              child: const Text('Show Awesome SnackBar'),
+              onPressed: () {
+                final snackBar = SnackBar(
+                  /// need to set following properties for best effect of awesome_snackbar_content
+                  elevation: 0,
+                  behavior: SnackBarBehavior.floating,
+                  backgroundColor: Colors.transparent,
+                  content: AwesomeSnackbarContent(
+                    title: 'On Snap!',
+                    message:
+                        'This is an example error message that will be shown in the body of snackbar!',
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+                    /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                    contentType: ContentType.failure,
+                  ),
+                );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+                ScaffoldMessenger.of(context)
+                  ..hideCurrentSnackBar()
+                  ..showSnackBar(snackBar);
+              },
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              child: const Text('Show Awesome Material Banner'),
+              onPressed: () {
+                final materialBanner = MaterialBanner(
+                  /// need to set following properties for best effect of awesome_snackbar_content
+                  elevation: 0,
+                  backgroundColor: Colors.transparent,
+                  forceActionsBelow: true,
+                  content: AwesomeSnackbarContent(
+                    title: 'Oh Hey!!',
+                    message:
+                        'This is an example error message that will be shown in the body of materialBanner!',
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
+                    /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                    contentType: ContentType.success,
+                    // to configure for material banner
+                    inMaterialBanner: true,
+                  ),
+                  actions: const [SizedBox.shrink()],
+                );
+
+                ScaffoldMessenger.of(context)
+                  ..hideCurrentMaterialBanner()
+                  ..showMaterialBanner(materialBanner);
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
