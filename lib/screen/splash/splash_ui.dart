@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:barber_bloc/screen/start/start.dart'; // Ensure correct import path
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+
+import 'package:barber_bloc/screen/Home/home_ui.dart';
+import 'package:barber_bloc/screen/start/start.dart';
 import '../../Theme/bloc/Them_cubit.dart';
 import 'bloc/bloc_splash_bloc.dart';
 
@@ -16,24 +18,30 @@ class SplashPage extends StatelessWidget {
         builder: (context, themeMode) {
           return BlocConsumer<BlocSplashBloc, BlocSplashState>(
             listener: (context, state) {
-              if (state is BlocSplashNavigate) {
+              if (state is BlocSplashHome) {
+                // Debug print statement
+                print("Navigating to HomeUi");
+                Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context) => HomeUi()));
+              } else if (state is BlocSplashNavigate) {
+                // Debug print statement
+                print("Navigating to StartUI");
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (context) => const StartUI(),
-                    ),
-                  );
+                      MaterialPageRoute(builder: (context) => StartUI()));
                 });
               }
             },
             builder: (context, state) {
+              // Adjust duration as needed to sync with your BLoC states
               return Scaffold(
                 backgroundColor:
                     themeMode == ThemeMode.dark ? Colors.black : Colors.white,
                 body: Center(
                   child: AnimatedOpacity(
-                    opacity: state is BlocSplashAnimate ? 1.0 : 0.0,
-                    duration: const Duration(milliseconds: 500),
+                    opacity: state is BlocSplashAnimateFadein ? 1.0 : 0.0,
+                    duration:
+                        const Duration(seconds: 2), // 2 seconds for fade in/out
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

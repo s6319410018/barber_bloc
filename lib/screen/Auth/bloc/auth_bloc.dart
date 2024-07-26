@@ -2,6 +2,7 @@ import 'package:barber_bloc/model/model_user.dart';
 import 'package:barber_bloc/repository/Get_token.dart';
 import 'package:barber_bloc/screen/Auth/signin.dart';
 import 'package:bloc/bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../repository/Auth.dart';
@@ -44,7 +45,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (response.token != null) {
         await Token.setToken(response.token!);
 
-        emit(AuthSuccess("Login Success"));
+        emit(const AuthSuccess("Login Success"));
       } else {
         emit(AuthFailure(response.message ?? 'Login Failed'));
       }
@@ -59,22 +60,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     try {
       final token = await Token.getToken();
-
       if (token == null) {
-        emit(const AuthFailure("Please login again"));
+        emit(const AuthFailure("Please log in again."));
         return;
       }
 
       final response = await Auth.getData(token);
 
-      if (response.email!.isNotEmpty && response.username!.isNotEmpty) {
+      if (response.email?.isNotEmpty == true &&
+          response.username?.isNotEmpty == true) {
         emit(GetUser(response));
       } else {
-        emit(const AuthFailure("No data available"));
+        emit(const AuthFailure("Invalid user data received."));
       }
     } catch (e) {
-      print('Error: $e');
-      emit(AuthFailure('An error occurred: ${e.toString()}'));
+      if (e.toString().contains('Token expired') ||
+          e.toString().contains('Token is expired')) {
+        emit(const AuthFailure("Token expired. Please log in again."));
+      } else {
+        emit(const AuthFailure('Please log in again.'));
+      }
     }
   }
 }

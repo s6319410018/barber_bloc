@@ -54,7 +54,7 @@ class SigninUipage extends StatelessWidget {
                       _passwordField(isDarkMode, controller, context),
                       const SizedBox(height: 20),
                       BlocConsumer<AuthBloc, AuthState>(
-                        listener: (context, state) {
+                        listener: (context, state) async {
                           if (state is AuthFailure) {
                             showTopSnackBar(
                               padding: const EdgeInsets.only(
@@ -98,7 +98,7 @@ class SigninUipage extends StatelessWidget {
                                 message: state.message,
                               ),
                             );
-                            Navigator.pushReplacement(
+                            await Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => HomeUi(),

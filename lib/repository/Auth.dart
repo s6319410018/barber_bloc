@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:barber_bloc/model/model_response.dart';
 import 'package:barber_bloc/repository/Get_token.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 import '../model/model_user.dart';
 import 'package:http/http.dart' as http;
@@ -72,7 +74,7 @@ class Auth {
           return LoginResponse(message: 'Login Failed');
       }
     } catch (e) {
-      return LoginResponse(message: 'An error occurred: $e');
+      return LoginResponse(message: '$e');
     }
   }
 
@@ -84,18 +86,40 @@ class Auth {
     }
 
     final url = Uri.parse('${Domain.Url}/api/auth/me');
-    final response = await http.get(
-      url,
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer $tokenStore',
-      },
-    );
-    if (response.statusCode == 200) {
-      final responseBody = jsonDecode(response.body);
-      return User.fromJson(responseBody);
+    final validateUrl = Uri.parse('${Domain.Url}/api/auth/expire_token');
+
+    // Validate token expiration
+    final validateResponse = await http.get(validateUrl, headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer $tokenStore',
+    });
+
+    if (validateResponse.statusCode == 200) {
+      final validate = jsonDecode(validateResponse.body);
+
+      if (validate["message"] == false) {
+        // Token is expired or invalid
+        final response = await http.get(
+          url,
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $tokenStore',
+          },
+        );
+
+        if (response.statusCode == 200) {
+          final responseBody = jsonDecode(response.body);
+          return User.fromJson(responseBody);
+        } else {
+          await Token.deleteToken();
+          return User(message: "Login");
+        }
+      } else {
+        throw Exception('Token is still valid or invalid response format');
+      }
     } else {
-      throw Exception('Failed to load user data :${response.statusCode}');
+      throw Exception(
+          'Failed to validate token: ${validateResponse.statusCode}');
     }
   }
 }
