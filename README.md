@@ -1,16 +1,11 @@
 # barber_bloc
 
-A new Flutter project.
+<table>
+  <tr>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    <td><img src="https://github.com/user-attachments/assets/822cd2e1-4887-49c9-a4ae-6ff13a6d623e"></td>
+    <td><img src=""></td>
+    <td><img src=""></td>
+    <td><img src=""></td>
+  </tr>
+</table>
