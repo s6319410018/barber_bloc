@@ -3,9 +3,9 @@
 
 
 <table border="1" style="width:100%; border-collapse: collapse;">
-    <tr>
+    <tr calspand>
         <td><img src="https://github.com/user-attachments/assets/bb144222-840c-43c2-a1c9-4e4de8225081" alt="Image 1" style="width:50%; height:auto;"></td>
-         <td><img src="https://github.com/user-attachments/assets/bb144222-840c-43c2-a1c9-4e4de8225081" alt="Image 1" style="width:50%; height:auto;"></td>
+         <td><img src="https://github.com/user-attachments/assets/78d8c7a2-6901-4ac9-b369-7b126b20dc64" alt="Image 1" style="width:50%; height:auto;"></td>
     </tr>
     <tr>
         <td><img src="https://github.com/user-attachments/assets/7c1959c3-f356-4cad-ac0a-3c48fb6a4549" alt="Image 1" style="width:50%; height:auto;"></td>
