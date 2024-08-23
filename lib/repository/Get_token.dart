@@ -1,7 +1,7 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class Token {
-  static final _secureStorage = FlutterSecureStorage();
+  static const _secureStorage = FlutterSecureStorage();
 
   static Future<String?> getToken() async {
     return await _secureStorage.read(key: 'auth_token');
@@ -12,6 +12,7 @@ class Token {
   }
 
   static Future<void> deleteToken() async {
+    print("Delete Token");
     await _secureStorage.delete(key: 'auth_token');
   }
 }

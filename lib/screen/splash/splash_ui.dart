@@ -19,12 +19,10 @@ class SplashPage extends StatelessWidget {
           return BlocConsumer<BlocSplashBloc, BlocSplashState>(
             listener: (context, state) {
               if (state is BlocSplashHome) {
-                // Debug print statement
                 print("Navigating to HomeUi");
                 Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => HomeUi()));
               } else if (state is BlocSplashNavigate) {
-                // Debug print statement
                 print("Navigating to StartUI");
                 WidgetsBinding.instance.addPostFrameCallback((_) {
                   Navigator.of(context).pushReplacement(
@@ -33,7 +31,6 @@ class SplashPage extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              // Adjust duration as needed to sync with your BLoC states
               return Scaffold(
                 backgroundColor:
                     themeMode == ThemeMode.dark ? Colors.black : Colors.white,

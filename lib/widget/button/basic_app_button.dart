@@ -44,8 +44,8 @@ class BasicAppButton extends StatelessWidget {
                     color: isDarkMode
                         ? AppColors.darkBackground.withOpacity(0.3)
                         : AppColors.lightBackground.withOpacity(0.3),
-                    blurRadius: 5,
-                    offset: const Offset(0, 3),
+                    blurRadius: 2,
+                    offset: const Offset(0, 2),
                   ),
                 ],
               ),

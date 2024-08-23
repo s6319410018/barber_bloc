@@ -10,14 +10,12 @@ class AppTheme {
       selectionHandleColor: Colors.black,
     ),
     hoverColor: Colors.black,
-    // textButtonTheme: const TextButtonThemeData(
-    //   style: ButtonStyle(
-    //     surfaceTintColor: WidgetStatePropertyAll(Colors.white),
-    //     backgroundColor: WidgetStatePropertyAll(Colors.white),
-    //     foregroundColor: WidgetStatePropertyAll(Colors.white),
-    //     overlayColor: WidgetStatePropertyAll(Colors.white),
-    //   ),
-    // ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: WidgetStateProperty.all(Colors.black),
+        overlayColor: WidgetStateProperty.all(Colors.black.withOpacity(0.1)),
+      ),
+    ),
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.lightBackground,
     brightness: Brightness.light,
@@ -67,6 +65,21 @@ class AppTheme {
       labelLarge: TextStyle(color: Colors.white),
       labelSmall: TextStyle(color: Colors.white),
     ),
+    primaryTextTheme: const TextTheme(
+      bodyLarge: TextStyle(color: Colors.white),
+      bodyMedium: TextStyle(color: Colors.white),
+      displayLarge: TextStyle(color: Colors.white),
+      displayMedium: TextStyle(color: Colors.white),
+      displaySmall: TextStyle(color: Colors.white),
+      headlineMedium: TextStyle(color: Colors.white),
+      headlineSmall: TextStyle(color: Colors.white),
+      titleLarge: TextStyle(color: Colors.white),
+      titleMedium: TextStyle(color: Colors.white),
+      titleSmall: TextStyle(color: Colors.white),
+      bodySmall: TextStyle(color: Colors.white),
+      labelLarge: TextStyle(color: Colors.white),
+      labelSmall: TextStyle(color: Colors.white),
+    ),
   );
 
   static final darkTheme = ThemeData(
@@ -76,14 +89,12 @@ class AppTheme {
       selectionHandleColor: Colors.white,
     ),
     hoverColor: Colors.white,
-    // textButtonTheme: const TextButtonThemeData(
-    //   style: ButtonStyle(
-    //     surfaceTintColor: WidgetStatePropertyAll(Colors.black),
-    //     backgroundColor: WidgetStatePropertyAll(Colors.black),
-    //     foregroundColor: WidgetStatePropertyAll(Colors.black),
-    //     overlayColor: WidgetStatePropertyAll(Colors.black),
-    //   ),
-    // ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: WidgetStateProperty.all(Colors.white),
+        overlayColor: WidgetStateProperty.all(Colors.white.withOpacity(0.1)),
+      ),
+    ),
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.darkBackground,
     brightness: Brightness.dark,
@@ -118,6 +129,21 @@ class AppTheme {
       ),
     ),
     textTheme: const TextTheme(
+      bodyLarge: TextStyle(color: Colors.black),
+      bodyMedium: TextStyle(color: Colors.black),
+      displayLarge: TextStyle(color: Colors.black),
+      displayMedium: TextStyle(color: Colors.black),
+      displaySmall: TextStyle(color: Colors.black),
+      headlineMedium: TextStyle(color: Colors.black),
+      headlineSmall: TextStyle(color: Colors.black),
+      titleLarge: TextStyle(color: Colors.black),
+      titleMedium: TextStyle(color: Colors.black),
+      titleSmall: TextStyle(color: Colors.black),
+      bodySmall: TextStyle(color: Colors.black),
+      labelLarge: TextStyle(color: Colors.black),
+      labelSmall: TextStyle(color: Colors.black),
+    ),
+    primaryTextTheme: const TextTheme(
       bodyLarge: TextStyle(color: Colors.black),
       bodyMedium: TextStyle(color: Colors.black),
       displayLarge: TextStyle(color: Colors.black),

@@ -2,6 +2,7 @@ class User {
   String? username;
   String? email;
   String? password;
+  String? newPassword;
   String? role;
   String? message;
   Map<String, String>? profile;
@@ -12,6 +13,7 @@ class User {
     this.username,
     this.email,
     this.password,
+    this.newPassword,
     this.role,
     this.message,
     this.profile,
@@ -24,6 +26,7 @@ class User {
       : username = json['username'],
         email = json['email'],
         password = json['password'],
+        newPassword = json['newPassword'],
         role = json['role'],
         message = json['message'],
         profile = Map<String, String>.from(json['profile'] ?? {}),
@@ -43,6 +46,7 @@ class User {
     data['username'] = username;
     data['email'] = email;
     data['password'] = password;
+    data['newPassword'] = newPassword;
     data['role'] = role;
     data['message'] = message;
     data['profile'] = profile;

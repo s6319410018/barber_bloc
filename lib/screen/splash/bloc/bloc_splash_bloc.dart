@@ -1,5 +1,6 @@
 import 'package:barber_bloc/repository/Get_token.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
 part 'bloc_splash_event.dart';
@@ -12,7 +13,9 @@ class BlocSplashBloc extends Bloc<BlocSplashEvent, BlocSplashState> {
   Future<void> _onStartRedirect(
       StartRedirect event, Emitter<BlocSplashState> emit) async {
     String? tokenStore = await Token.getToken();
-
+    if (kDebugMode) {
+      print("ToKEnnnnnnnnnnnnnn:${tokenStore}");
+    }
     emit(BlocSplashAnimateFadein());
     await Future.delayed(const Duration(seconds: 2));
 

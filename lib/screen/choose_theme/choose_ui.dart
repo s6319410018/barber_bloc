@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:barber_bloc/Theme/app_colors.dart';
 import 'package:barber_bloc/Theme/bloc/Them_cubit.dart';
 import 'package:barber_bloc/screen/Auth/signup_or_siginin.dart';
-import 'package:barber_bloc/screen/start/start.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widget/button/basic_app_button.dart';
