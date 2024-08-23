@@ -3,7 +3,7 @@
 
 
 <table border="1" style="width:100%; border-collapse: collapse;">
-    <tr calspand>
+    <tr colspan="2">
         <td><img src="https://github.com/user-attachments/assets/bb144222-840c-43c2-a1c9-4e4de8225081" alt="Image 1" style="width:50%; height:auto;"></td>
          <td><img src="https://github.com/user-attachments/assets/78d8c7a2-6901-4ac9-b369-7b126b20dc64" alt="Image 1" style="width:50%; height:auto;"></td>
     </tr>
